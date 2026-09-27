@@ -1,30 +1,107 @@
-# Saas Landing Page
+# SaaS Landing Page XG
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A polished, light-themed SaaS landing page template built with Next.js
+(originally generated with v0.app). A variant of the dark `saas-landing-page`
+template, this one uses a clean light design with theme toggle support and a
+full marketing layout: hero with social proof, features, testimonials, pricing,
+FAQ, and calls to action ("No credit card", "Cancel anytime").
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gileb64375-5584s-projects/v0-saas-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/BbVUjzOc3kJ)
+## Features
 
-## Overview
+- **Hero section** — headline, CTAs, and "Trusted by innovative companies
+  worldwide" social-proof strip
+- **Theme toggle** — light/dark mode switch powered by next-themes
+- **Features section** — "Everything You Need to Succeed" product grid
+- **Testimonials** — customer quotes
+- **Pricing section** — tiered plans with "No credit card / Cancel anytime"
+  messaging
+- **FAQ** — Radix accordion
+- **Sticky navbar** — responsive with mobile menu toggle
+- **Fully responsive** — mobile, tablet, and desktop layouts
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech Stack
+
+- [Next.js](https://nextjs.org) 14 (App Router, static export)
+- [React](https://react.dev) 18
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com) 3 + tailwindcss-animate
+- [Radix UI](https://www.radix-ui.com) (accordion, tabs)
+- [Framer Motion](https://www.framer.com/motion/) — animations
+- [next-themes](https://github.com/pacocoursey/next-themes) — theming
+- [lucide-react](https://lucide.dev) — icons
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js 18 or later
+- npm (or pnpm/yarn)
+
+### Install and run
+
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
+
+### Build for production
+
+```bash
+npm run build
+npm start
+```
+
+The project is configured for static export (`output: "export"`), so
+`npm run build` produces a fully static site in the `out/` directory that can
+be hosted on any static host (GitHub Pages, Cloudflare Pages, Netlify, Vercel).
+
+## Project Structure
+
+```
+app/
+  page.tsx            # Home page — all marketing sections
+  layout.tsx          # Root layout, theme provider, fonts
+  globals.css         # Tailwind + global styles
+components/
+  ui/                 # shadcn/ui-style primitives
+  <sections>          # Hero, features, pricing, FAQ, footer components
+lib/
+  utils.ts            # cn() class-name helper
+public/               # Static assets
+tailwind.config.js    # Tailwind theme config
+next.config.mjs       # Static export + basePath config
+```
+
+## Environment Variables
+
+None required. The template runs entirely client-side with no backend.
 
 ## Deployment
 
-Your project is live at:
+This repo is deployed as a static site on **GitHub Pages**:
 
-**[https://vercel.com/gileb64375-5584s-projects/v0-saas-landing-page](https://vercel.com/gileb64375-5584s-projects/v0-saas-landing-page)**
+- Live URL: https://girishlade111.github.io/saas-landing-page-xg/
+- Deployment: `output: "export"` static build pushed to the `gh-pages` branch.
 
-## Build your app
+Notes:
 
-Continue building your app on:
+- `basePath` is set to `/saas-landing-page-xg` so assets resolve correctly under
+  the GitHub Pages subpath. **Remove the `basePath` line from `next.config.mjs`
+  if you deploy to a root domain (Vercel/Netlify/Cloudflare Pages root) — or set
+  it to your own subpath.**
+- `images.unoptimized` is enabled because static export has no image optimizer.
+- Next.js was bumped to 14.2.33 (patched for CVE-2025-55182 / React2Shell and
+  related vulnerabilities on the 14.x line).
 
-**[https://v0.app/chat/projects/BbVUjzOc3kJ](https://v0.app/chat/projects/BbVUjzOc3kJ)**
+## Customizing
 
-## How It Works
+- Edit `app/page.tsx` and the section components under `components/` to change
+  copy and layout.
+- Global styles and Tailwind tokens live in `app/globals.css` and
+  `tailwind.config.js`.
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+---
+
+Built by Girish Lade — https://ladestack.in
